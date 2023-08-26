@@ -10,11 +10,33 @@ const displayContent = document.querySelector('.display-content');
 const operatorButtons = document.querySelectorAll('.operator-btn');
 const equalsButton = document.querySelector('.equals-btn');
 const clearButton = document.querySelector('.clear-btn');
+const decimalButton = document.querySelector('.decimal-button');
+const backspaceButton = document.querySelector('.backspace-button');
 
 numberButtons.forEach(numbersFunction, this);
 operatorButtons.forEach(operatorFunction, this);
 
+//backspace button
+backspaceButton.addEventListener('click', () => {
+    let newString = displayContent.textContent.slice(0, -1);
+    displayContent.textContent = newString;
+});
 
+//decimal button
+decimalButton.addEventListener('click', () => {
+    if (operatorStatus === 'engaged') {
+        displayContent.textContent = '';
+        displayContent.textContent += decimalButton.textContent;
+        toggleOperators('off');
+        operatorStatus = 'disengaged';
+    } else if (displayContent.textContent.includes('.')) {
+        decimalButton.disabled = true;
+    } else {
+        displayContent.textContent += decimalButton.textContent;
+    }
+})
+
+//clear button
 clearButton.addEventListener('click', () => {
     num1 = 0;
     num2 = 0;
@@ -31,7 +53,6 @@ equalsButton.addEventListener('click', () => {
 })
 
 function numbersFunction(btn) {
-
     btn.addEventListener('click', () => {
         toggleOperators('on');
         if (operatorStatus === 'engaged' || equals === 'engaged') {
@@ -46,6 +67,7 @@ function numbersFunction(btn) {
 
 function operatorFunction(btn) {
     btn.addEventListener('click', () => {
+        decimalButton.disabled = false;
         if (operator === '') {
             num1 = Number(displayContent.textContent);
         } else {
@@ -116,5 +138,11 @@ function operate(operator, num1, num2) {
             break;    
     }
 }
+
+//keyboard functionality
+window.addEventListener('keyup', function(e) {
+    e.preventDefault();
+    let currentKey = document.getElementById(`btn-${e.key}`).click();
+})
 
 
