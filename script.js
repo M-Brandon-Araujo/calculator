@@ -10,8 +10,8 @@ const displayContent = document.querySelector('.display-content');
 const operatorButtons = document.querySelectorAll('.operator-btn');
 const equalsButton = document.querySelector('.equals-btn');
 const clearButton = document.querySelector('.clear-btn');
-const decimalButton = document.querySelector('.decimal-button');
-const backspaceButton = document.querySelector('.backspace-button');
+const decimalButton = document.querySelector('.decimal-btn');
+const backspaceButton = document.querySelector('.backspace-btn');
 
 numberButtons.forEach(numbersFunction, this);
 operatorButtons.forEach(operatorFunction, this);
@@ -34,6 +34,8 @@ decimalButton.addEventListener('click', () => {
     } else {
         displayContent.textContent += decimalButton.textContent;
     }
+    equalsStatus = 'disengaged';
+    operatorStatus = 'disengaged';
 })
 
 //clear button
@@ -42,6 +44,8 @@ clearButton.addEventListener('click', () => {
     num2 = 0;
     operator = '';
     displayContent.textContent = '';
+    equalsStatus = 'disengaged';
+    operatorStatus = 'disengaged';
 })
 
 
@@ -49,20 +53,21 @@ equalsButton.addEventListener('click', () => {
     num2 = Number(displayContent.textContent);
     operate(operator, num1, num2);
     operator = '';
-    equals = 'engaged';
+    equalsStatus = 'engaged';
+    operatorStatus = 'engaged';
 })
 
 function numbersFunction(btn) {
     btn.addEventListener('click', () => {
         toggleOperators('on');
-        if (operatorStatus === 'engaged' || equals === 'engaged') {
+        if (operatorStatus === 'engaged' || equalsStatus === 'engaged') {
             displayContent.textContent = '';
             operatorStatus = 'disengaged';
-            equals = 'disengaged';
+            equalsStatus = 'disengaged';
         }
             displayContent.textContent += btn.textContent;
     })
-    equals = 'disengaged';
+    equalsStatus = 'disengaged';
 }
 
 function operatorFunction(btn) {
