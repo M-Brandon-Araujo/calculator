@@ -97,19 +97,19 @@ function toggleOperators(command) {
 }
 
 function add(operand1, operand2) {
-    let result = operand1 + operand2;
+    let result = Math.round((operand1 + operand2) * 100000) / 100000;
     displayContent.textContent = result;
     num1 = result;
 }
 
 function subtract(operand1, operand2) {
-    let result = operand1 - operand2;
+    let result = Math.round((operand1 - operand2) * 100000) / 100000;
     displayContent.textContent = result;
     num1 = result;
 }
 
 function multiply(operand1, operand2) {
-    let result = operand1 * operand2;
+    let result = Math.round((operand1 * operand2) * 100000) / 100000;
     displayContent.textContent = result;
     num1 = result;
 }
@@ -121,7 +121,7 @@ function divide(operand1, operand2) {
         num2 = 0;
         operator = '';
     } else {
-        let result = operand1 / operand2;
+        let result = Math.round((operand1 / operand2) * 100000) / 100000;
         displayContent.textContent = result;
         num1 = result;
     }
