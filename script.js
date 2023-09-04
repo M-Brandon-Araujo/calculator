@@ -12,6 +12,12 @@ const equalsButton = document.querySelector('.equals-btn');
 const clearButton = document.querySelector('.clear-btn');
 const decimalButton = document.querySelector('.decimal-btn');
 const backspaceButton = document.querySelector('.backspace-btn');
+const darkModeToggle = document.querySelector('#darkmode-toggle');
+const body = document.querySelector('body');
+const mainContainer = document.querySelector('.main-container');
+const displayContainer = document.querySelector('.display-container');
+const display = document.querySelector('.display');
+const light = document.querySelector('.light');
 
 numberButtons.forEach(numbersFunction, this);
 operatorButtons.forEach(operatorFunction, this);
@@ -149,5 +155,30 @@ window.addEventListener('keyup', function(e) {
     e.preventDefault();
     let currentKey = document.getElementById(`btn-${e.key}`).click();
 })
+
+darkModeToggle.addEventListener('change', darkModeFunction);
+
+function darkModeFunction() {
+    body.classList.toggle('dark-background');
+    mainContainer.classList.toggle('dark-main-container');
+    numberButtons.forEach((btn) => {
+        btn.classList.toggle('dark-numbers');
+    });
+    operatorButtons.forEach((btn) => {
+        btn.classList.toggle('dark-operators');
+    })
+    backspaceButton.classList.toggle('dark-backspace');
+    clearButton.classList.toggle('dark-clear');
+    decimalButton.classList.toggle('dark-decimal');
+    equalsButton.classList.toggle('dark-equals');
+    displayContainer.classList.toggle('dark-display-container');
+    display.classList.toggle('dark-display');
+    displayContent.classList.toggle('dark-display-content');
+    light.classList.toggle('dark-light');
+}
+
+
+
+
 
 
