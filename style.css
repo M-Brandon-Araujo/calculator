@@ -1,5 +1,9 @@
 body {
     background-color: #d3e1f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-container {
@@ -68,7 +72,8 @@ body {
     height: 70px;
     width: 320px;
     border-radius: 7px;
-    background-image: linear-gradient(to bottom, pink, rgb(107, 107, 249));
+    background: #F7A78C;
+    background: radial-gradient(at left bottom, #8dabfd, #ffa4c8);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -77,7 +82,7 @@ body {
 .display-content {
     font-family: Helvetica;
     font-size: 45px;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgb(54, 55, 57);
     padding: 3px;
     flex-shrink: 1;
 }
@@ -185,3 +190,178 @@ body {
     color: rgb(255, 105, 105);
 }
 
+/*slider*/
+
+.slider-container {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(54, 55, 57);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 7px;
+    bottom: 4px;
+    background-color: rgb(54, 55, 57);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: inset 6px -4px 0 white;
+}
+
+input:checked + .slider {
+    background-color: rgb(54, 55, 57);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px rgb(54, 55, 57);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: white;
+}
+
+.light {
+    height: 6px;
+    width: 6px;
+    background-color: rgb(193, 193, 193);
+    border-radius: 50%;
+}
+
+body.dark-background {
+    background-color:#887ba7
+}
+
+.dark-main-container {
+    background-image: linear-gradient(to bottom right, #1d1720, #000000);
+    box-shadow: 20px 30px 60px rgb(60, 51, 71);
+}
+
+.dark-numbers {
+    text-shadow: 0px 0px 2px rgb(225, 195, 252);
+    color: rgb(243, 230, 255);
+    font-family: Helvetica;
+    background-image: linear-gradient(to bottom right, #2c2642, #191526);
+    box-shadow: 0 2px #2e2c35; 
+    border: solid rgb(93, 74, 93) 1px;
+}
+
+.dark-operators {
+    text-shadow: 0px 0px 2px rgb(225, 195, 252);
+    color: rgb(243, 230, 255);
+    font-family: Helvetica;
+    background-image: linear-gradient(to bottom right, #2c2642, #191526);
+    border: solid rgba(89, 71, 89) 1px;
+    box-shadow: 0 2px #2e2c35; 
+}
+
+.dark-backspace {
+    text-shadow: 0px 0px 2px rgb(225, 195, 252);
+    color: rgb(243, 230, 255);
+    font-family: Helvetica;
+    background-image: linear-gradient(to bottom right, #2c2642, #191526);
+    border: solid rgba(89, 71, 89) 1px;
+    box-shadow: 0 2px #2e2c35; 
+}
+
+.dark-clear {
+    text-shadow: 0px 0px 2px rgb(225, 195, 252);
+    color: rgb(243, 230, 255);
+    font-family: Helvetica;
+    background-image: linear-gradient(to bottom right, #2c2642, #191526);
+    border: solid rgba(89, 71, 89) 1px;
+    box-shadow: 0 2px #2e2c35;
+}
+
+.dark-decimal {
+    text-shadow: 0px 0px 2px rgb(225, 195, 252);
+    color: rgb(243, 230, 255);
+    font-family: Helvetica;
+    background-image: linear-gradient(to bottom right, #2c2642, #191526);
+    border: solid rgba(89, 71, 89) 1px;
+    box-shadow: 0 2px #2e2c35; 
+}
+
+.dark-equals {
+    width: 155px;
+    text-shadow: 0px 0px 2px rgb(255, 100, 100);
+    color: rgb(255, 105, 105);
+    font-family: Helvetica;
+    background-image: linear-gradient(to bottom right, #2c2642, #191526);
+    border: solid rgba(89, 71, 89) 1px;
+    box-shadow: 0 2px #2e2c35; 
+}
+
+.dark-display-container {
+    background-image: linear-gradient(to bottom right, #000000, #000000);
+    border: solid rgb(44, 40, 40) 2px;
+    box-shadow: 0px 0px 0px rgba(67, 73, 82, 0.16), 0px 0px 0px rgb(245, 255, 255);
+}
+
+.dark-display {
+    box-shadow: 0px 0px 15px 2px grey;
+}
+
+.dark-display-content {
+    color: black;
+}
+
+.dark-light {
+    background-color: rgb(150, 255, 94);
+    box-shadow: 0px 0px 5px 2px rgb(27, 211, 36);
+    transition-delay: .07s;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Helvetica;
+    font-size: 18px;
+    color: rgb(54, 55, 57);
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgb(54, 55, 57);
+}
