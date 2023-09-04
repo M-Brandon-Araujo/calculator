@@ -18,11 +18,13 @@ From the Odin Project's [curriculum](https://www.theodinproject.com/courses/foun
 * Git
 * Github
 
-## Outcome
-
-## Summary
-
 ### What I Learned
+
+* This project has been the most complex so far and has provided me with many valuable lessons.
+* I gained a deeper understanding of how to use query selectors in conjunction with CSS. The decision to add a dark mode arose from seeing the possibility of using query selectors to toggle class lists.
+* While event listeners and using 'forEach' on nodelists proved to be the most difficult aspect of the project, I'm looking forward to learning more about them and using them in future projects. 
+* I decided to learn how to use CSS Grid in order to design the user interface of the calculator.
+* The most fulfilling aspect of this project was gaining an appreciation for how these three languages work together. 
 
 ## Author
 
