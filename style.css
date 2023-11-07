@@ -378,4 +378,8 @@ a:visited {
         margin-left: 0;
         width: 100vw;
     }
+
+    .btn {
+        padding: 0;
+    }
 }
